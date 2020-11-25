@@ -37,6 +37,7 @@ class profilePage extends React.Component {
                     </div>
                     <div className="sections">
                         <div className="section">
+                            <h3 className="titleSection">Social media</h3>
                             <ul>
                                 <li>Twitter</li>
                                 <li>Facebook</li>
@@ -44,12 +45,14 @@ class profilePage extends React.Component {
                             </ul>
                         </div>
                         <div className="section">
+                            <h3 className="titleSection">Contatos</h3>
                             <ul>
                                 <li>Telefone</li>
                                 <li>Email</li>
                             </ul>
                         </div>
                         <div className="section">
+                            <h3 className="titleSection">Competências</h3>
                             <ul>
                                 <li>Html</li>
                                 <li>Css</li>

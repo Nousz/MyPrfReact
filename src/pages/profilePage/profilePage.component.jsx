@@ -6,15 +6,10 @@ import './profilePage.styles.scss';
 class profilePage extends React.Component {
     constructor() {
         super();
-    }
 
-    state = {
-        name: '',
-        bio: '',
-        contact: [],
-        skills: [],
-        socialNetwork: [],
-
+        this.state = {
+            
+        }
     }
 
 

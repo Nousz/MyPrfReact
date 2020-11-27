@@ -17,6 +17,25 @@ const UserSchema = new mongoose.Schema({
         required: true,
         select: false,
     },
+    bio: {
+        type: String,
+    },
+    skills: [
+        {
+            type: String,
+        }
+    ],
+    contatos: [
+        {
+            type: String,
+        }
+    ],
+    socialMedia: [
+        {
+            type: String,
+        }
+    ],
+
     creatAt: {
         type: Date,
         default: Date.now,

@@ -1,3 +1,5 @@
-export default function parseStringAsArray(arrayAsString) {
-    return arrayAsString.split(',').map((item) => item.trim());
-  }
+module.exports = {
+  StringAsArray(arrayAsString) {
+    return arrayAsString.split(",").map((item) => item.trim());
+  },
+};

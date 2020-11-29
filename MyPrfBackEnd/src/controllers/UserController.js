@@ -47,8 +47,8 @@ module.exports = {
   },
 
   async login(req, res) {
+    const { email, password } = req.body;
     try {
-      const { email, password } = req.body;
       const user = await User.findOne({ email }).select("+password");
       if (!user) {
         return res.status(400).send({ error: "User not found" });
@@ -91,7 +91,6 @@ module.exports = {
     const skillsArray = parse.StringAsArray(skills);
     const contactsArray = parse.StringAsArray(contacts);
     const hashedPass = await hash.hashPassword(password);
-    const { filename } = req.file;
 
     let user;
     try {
@@ -101,44 +100,86 @@ module.exports = {
         return res.status(400).send({ error: "User not found" });
       }
 
-      if (filename) {
-        user = await User.findByIdAndUpdate(
-          id,
-          {
-            email,
-            image: filename,
-            password: hashedPass,
-            bio,
-            skills: skillsArray,
-            contacts: contactsArray,
-            twitter,
-            facebook,
-            instagram,
-          },
-          {
-            new: true,
-          }
-        );
+      if (password !== "") {
+        if (req.file) {
+          const { filename } = req.file;
+          user = await User.findByIdAndUpdate(
+            id,
+            {
+              email,
+              image: filename,
+              password: hashedPass,
+              bio,
+              skills: skillsArray,
+              contacts: contactsArray,
+              twitter,
+              facebook,
+              instagram,
+            },
+            {
+              new: true,
+            }
+          );
 
-        return res.send(user);
+          return res.send(user);
+        } else {
+          user = await User.findByIdAndUpdate(
+            id,
+            {
+              email,
+              password: hashedPass,
+              bio,
+              skills,
+              contacts,
+              twitter,
+              facebook,
+              instagram,
+            },
+            {
+              new: true,
+            }
+          );
+          return res.send(user);
+        }
       } else {
-        user = await User.findByIdAndUpdate(
-          id,
-          {
-            email,
-            password: hashedPass,
-            bio,
-            skills,
-            contacts,
-            twitter,
-            facebook,
-            instagram,
-          },
-          {
-            new: true,
-          }
-        );
-        return res.send(user);
+        if (req.file) {
+          const { filename } = req.file;
+          user = await User.findByIdAndUpdate(
+            id,
+            {
+              email,
+              image: filename,
+              bio,
+              skills: skillsArray,
+              contacts: contactsArray,
+              twitter,
+              facebook,
+              instagram,
+            },
+            {
+              new: true,
+            }
+          );
+
+          return res.send(user);
+        } else {
+          user = await User.findByIdAndUpdate(
+            id,
+            {
+              email,
+              bio,
+              skills,
+              contacts,
+              twitter,
+              facebook,
+              instagram,
+            },
+            {
+              new: true,
+            }
+          );
+          return res.send(user);
+        }
       }
     } catch (err) {
       return res.status(400).send(err);

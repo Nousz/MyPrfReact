@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./editPage.styles.scss";
 import { NavLink } from "react-router-dom";
@@ -16,6 +16,20 @@ export default function EditPage() {
   const [instagram, setInstagram] = useState("");
   const [skills, setSkills] = useState("");
   const [contacts, setContacts] = useState("");
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    const res = localStorage.getItem("user");
+    const usr = JSON.parse(res);
+    setUser(usr);
+    setEmail(usr.email);
+    setBio(usr.bio);
+    setTwitter(usr.socialMedia.twitter);
+    setFacebook(usr.socialMedia.facebook);
+    setInstagram(usr.socialMedia.instagram);
+    setSkills(usr.skills.join(", "));
+    setContacts(usr.contacts.join(", "));
+  }, []);
 
   const history = useHistory();
 
@@ -32,11 +46,9 @@ export default function EditPage() {
       data.append("twitter", twitter);
       data.append("facebook", facebook);
       data.append("instagram", instagram);
-
-      const response = await api.put("users", data);
+      const response = await api.put(`users/${user._id}`, data);
 
       if (response.data._id) {
-        console.log(response.data);
         alert("Usuário atualizado com sucesso");
         history.push("/");
       }

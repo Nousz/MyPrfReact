@@ -40,7 +40,7 @@ export default function ProfilePage() {
     localStorage.setItem("sUser", JSON.stringify(user));
     history.push("/searched-profile");
   }
-  function logOut(){
+  function logOut() {
     localStorage.clear();
     history.push("/");
   }
@@ -53,6 +53,7 @@ export default function ProfilePage() {
             <div className="searchbar">
               <form onSubmit={(e) => getUserNames(e)}>
                 <input
+                  placeholder="Search a user"
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -63,7 +64,11 @@ export default function ProfilePage() {
             <div id="users-found">
               <ul
                 id="user-list"
-                style={visible ? { display: "block", margin: 0 } : { display: "none" }}
+                style={
+                  visible
+                    ? { display: "block", margin: 0 }
+                    : { display: "none" }
+                }
               >
                 {searched.map((item) => {
                   return (
@@ -76,7 +81,7 @@ export default function ProfilePage() {
               Edit Profile
             </NavLink>
             <a className="editLogOut" onClick={() => logOut()}>
-                Log Out
+              Log Out
             </a>
             <img src={user.image_url ? user.image_url : profilePic} alt="" />
           </div>
@@ -131,6 +136,9 @@ export default function ProfilePage() {
           </div>
         </>
       )}
+      <footer>
+        <div>Developed by: <br/><a href=""> Christian Herculano </a><br/><a href=""> João Paulo </a><br/><a href="https://github.com/joaodamasceno2001"> João Victor </a><br/><a href="https://github.com/Nousz"> Lucas Farias </a></div>
+      </footer>
     </div>
   );
 }

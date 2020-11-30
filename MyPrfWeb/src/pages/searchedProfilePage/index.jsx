@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import profilePic from "../../assets/indice.jpg";
+import { NavLink } from "react-router-dom";
 
 import "./searchedProfilePage.styles.scss";
 
@@ -20,6 +21,9 @@ export default function SearchedProfilePage() {
         <>
           <div className="background">
             <img src={user.image ? user.image_url : profilePic} alt="" />
+            <NavLink className="editLogOut" to="/profile">
+              Ir para Perfil
+            </NavLink>
           </div>
           <h2>{user.name}</h2>
           <div className="main">
@@ -72,6 +76,9 @@ export default function SearchedProfilePage() {
           </div>
         </>
       )}
+      <footer>
+        <div>Developed by: <br/> Lucas Farias <br/> João Victor <br/> Christian Herculano <br/> João Paulo</div>
+      </footer>
     </div>
   );
 }

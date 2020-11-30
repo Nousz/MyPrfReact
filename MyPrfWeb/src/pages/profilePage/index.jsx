@@ -137,7 +137,16 @@ export default function ProfilePage() {
         </>
       )}
       <footer>
-        <div>Developed by: <br/><a href=""> Christian Herculano </a><br/><a href=""> João Paulo </a><br/><a href="https://github.com/joaodamasceno2001"> João Victor </a><br/><a href="https://github.com/Nousz"> Lucas Farias </a></div>
+        <div>
+          Developed by: <br />
+          <a to=""> Christian Herculano </a>
+          <br />
+          <a to=""> João Paulo </a>
+          <br />
+          <a to="https://github.com/joaodamasceno2001"> João Victor </a>
+          <br />
+          <a to="https://github.com/Nousz"> Lucas Farias </a>
+        </div>
       </footer>
     </div>
   );

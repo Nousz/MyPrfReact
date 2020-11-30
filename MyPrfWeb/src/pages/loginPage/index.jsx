@@ -65,6 +65,7 @@ export default function LoginPage() {
                 type="password"
                 placeholder="*****"
               />
+              <p>Forgot your password?</p>
             </div>
             <button className="btn">Submit</button>
           </form>

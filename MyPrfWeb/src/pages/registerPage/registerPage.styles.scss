@@ -86,27 +86,6 @@
             margin-bottom: 10px;
             resize: none;
           }
-
-          div {
-            display: flex;
-            div {
-              display: flex;
-              flex-direction: row;
-            }
-            input {
-              max-width: 140px;
-              margin-right: 10px;
-            }
-            button {
-              background-color: white;
-              border: 1px solid black;
-              max-width: 40px;
-              max-height: 20px;
-              background-color: white;
-              border-radius: 8px;
-              cursor: pointer;
-            }
-          }
         }
 
         .btn {

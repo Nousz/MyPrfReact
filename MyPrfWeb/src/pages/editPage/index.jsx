@@ -65,7 +65,6 @@ export default function EditPage() {
       </div>
 
       <div className="registerPageSideTwo">
-       
         <div className="registerPageInputArea">
           <form className="registerPageForm" onSubmit={(e) => handleSubmit(e)}>
             <h2>Edit your profile</h2>
@@ -94,50 +93,40 @@ export default function EditPage() {
                 value={bio}
                 onChange={(e) => setBio(e.target.value)}
               />
-              <div className="skills">
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Twitter username"
-                    value={twitter}
-                    onChange={(e) => setTwitter(e.target.value)}
-                  />
-                </div>
+              <input
+                type="text"
+                placeholder="Twitter username"
+                value={twitter}
+                onChange={(e) => setTwitter(e.target.value)}
+              />
 
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Facebook username"
-                    value={facebook}
-                    onChange={(e) => setFacebook(e.target.value)}
-                  />
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Instagram username"
-                    value={instagram}
-                    onChange={(e) => setInstagram(e.target.value)}
-                  />
-                </div>
+              <input
+                type="text"
+                placeholder="Facebook username"
+                value={facebook}
+                onChange={(e) => setFacebook(e.target.value)}
+              />
 
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Skills"
-                    value={skills}
-                    onChange={(e) => setSkills(e.target.value)}
-                  />
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    placeholder="(00)000000000"
-                    value={contacts}
-                    onChange={(e) => setContacts(e.target.value)}
-                  />
-                </div>
-              </div>
+              <input
+                type="text"
+                placeholder="Instagram username"
+                value={instagram}
+                onChange={(e) => setInstagram(e.target.value)}
+              />
+
+              <input
+                type="text"
+                placeholder="Skills"
+                value={skills}
+                onChange={(e) => setSkills(e.target.value)}
+              />
+
+              <input
+                type="text"
+                placeholder="(00)000000000"
+                value={contacts}
+                onChange={(e) => setContacts(e.target.value)}
+              />
             </div>
             <button className="btn">Submit</button>
           </form>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./editPage.styles.scss";
-import { NavLink } from "react-router-dom";
 import LoginImg from "../../assets/undraw_Login_re_4vu2.svg";
 
 import api from "../../services/api";
@@ -50,7 +49,9 @@ export default function EditPage() {
 
       if (response.data._id) {
         alert("Usuário atualizado com sucesso");
-        history.push("/");
+        localStorage.removeItem("user");
+        localStorage.setItem("user", JSON.stringify(response.data));
+        history.push("/profile");
       }
     } catch (error) {
       alert("Algo deu errado");
@@ -64,19 +65,14 @@ export default function EditPage() {
       </div>
 
       <div className="registerPageSideTwo">
-        <div className="registerPageHeader">
-          <span>Have an account?</span>
-          <NavLink to="/">Log in</NavLink>
-        </div>
-
+       
         <div className="registerPageInputArea">
           <form className="registerPageForm" onSubmit={(e) => handleSubmit(e)}>
-            <h1>Edit your profile</h1>
+            <h2>Edit your profile</h2>
             <div>
               <input
                 type="file"
                 accept="image/png, image/jpg, image/jpeg"
-                value={image}
                 onChange={(e) => setImage(e.target.files[0])}
               />
               <input
@@ -111,7 +107,7 @@ export default function EditPage() {
                 <div>
                   <input
                     type="text"
-                    placeholder="Fcebook username"
+                    placeholder="Facebook username"
                     value={facebook}
                     onChange={(e) => setFacebook(e.target.value)}
                   />

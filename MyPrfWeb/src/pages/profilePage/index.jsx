@@ -40,6 +40,10 @@ export default function ProfilePage() {
     localStorage.setItem("sUser", JSON.stringify(user));
     history.push("/searched-profile");
   }
+  function logOut(){
+    localStorage.clear();
+    history.push("/");
+  }
 
   return (
     <div className="container">
@@ -59,7 +63,7 @@ export default function ProfilePage() {
             <div id="users-found">
               <ul
                 id="user-list"
-                style={visible ? { display: "block" } : { display: "none" }}
+                style={visible ? { display: "block", margin: 0 } : { display: "none" }}
               >
                 {searched.map((item) => {
                   return (
@@ -71,6 +75,9 @@ export default function ProfilePage() {
             <NavLink className="edit" to="/edit">
               Edit Profile
             </NavLink>
+            <a className="editLogOut" onClick={() => logOut()}>
+                Log Out
+            </a>
             <img src={user.image_url ? user.image_url : profilePic} alt="" />
           </div>
           <h2>{user.name}</h2>

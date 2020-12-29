@@ -29,6 +29,7 @@ Nossa missão é facilitar a busca dos recrutadores para analisar perfis de poss
   <ul>
     <li>npm install</li>
   </ul>
+  <br>
 <strong> No diretório do FrontEnd</strong>
   <br>
   <li>Instalar o yarn</li>
@@ -51,7 +52,6 @@ Nossa missão é facilitar a busca dos recrutadores para analisar perfis de poss
   </ul>
 
 <br>
-
   <strong> No diretório do FrontEnd</strong>
   <ul>
     <li>npm start</li>

@@ -50,6 +50,8 @@ Nossa missão é facilitar a busca dos recrutadores para analisar perfis de poss
     <strong>OBS: Usando este comando, você irá iniciar o servidor do BackEnd</strong>
   </ul>
 
+<br>
+
   <strong> No diretório do FrontEnd</strong>
   <ul>
     <li>npm start</li>
